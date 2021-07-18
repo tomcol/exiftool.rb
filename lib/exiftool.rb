@@ -40,6 +40,11 @@ class Exiftool
     File.expand_path(filename)
   end
 
+  def self.preview_image(filename)
+    cmd = "exiftool -PreviewImage -b #{expand_path(filename)}>preview.jpg"
+    `#{cmd}`
+  end
+
   extend Forwardable
 
   def_delegators :first_result, :to_hash, :to_display_hash, :symbol_display_hash, :raw, :[]
