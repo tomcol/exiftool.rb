@@ -41,7 +41,7 @@ class Exiftool
   end
 
   def self.preview_image(source_filename, destination_filename = 'preview.jpg')
-    cmd = "exiftool -PreviewImage -b #{expand_path(source_filename).shellescape}>#{destination_filename}"
+    cmd = "exiftool -PreviewImage -b -q -q #{expand_path(source_filename).shellescape}>#{destination_filename}"
     `#{cmd}`
   end
 
